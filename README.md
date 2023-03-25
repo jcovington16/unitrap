@@ -1,8 +1,13 @@
+![Free_Sample_By_Wix(2)](https://user-images.githubusercontent.com/59489905/227745631-efbdde0e-99c9-42df-aa04-956690a8538f.jpg)
 
-![Free_Sample_By_Wix](https://user-images.githubusercontent.com/59489905/227742535-e626f64a-74a1-4ea2-9ae1-80355db8ffd9.jpg)
 
+# Buidl Bounty Hunters Credit Union
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+ Providing Private Banking and Financial Data to Local Communities around the Globe
+ 
+## About us
+
+Buidl Bounty Hunters Credit Union (BBHCU) is a community oriented data dao committed to global impact. We are more than a credit union. We leverage zk and other web3 technologies to revolutionize banking. We provide open user financial data for buidlrs while protecting member privacy making information like credit scores obsolete.
 
 ## Getting Started
 
@@ -21,17 +26,6 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
