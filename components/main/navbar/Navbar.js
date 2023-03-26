@@ -25,6 +25,8 @@ const Navbar = () => {
         case '/charts':
             setCurrentSelection(3)
             break;
+        case '/chat':
+            setCurrentSelection(4)
      }
     }, [url])
 
@@ -63,6 +65,14 @@ const Navbar = () => {
                                 setCurrentSelection(3)
                                 router.push('/charts')
                             }}/> Charts
+                    </label>
+                    <div className={styles.divider}></div>
+                    <label htmlFor='option5' className={`btn btn-secondary ${currentSelection === 4 && styles.active}`}>
+                        <input className={styles.inputRadio} type='radio' value='Chat' name='options' id='option5' 
+                            onChange={() =>{
+                                setCurrentSelection(4)
+                                router.push('/chat')
+                            }}/> Chat
                     </label>
                 </div>
 
