@@ -4,7 +4,7 @@ import ThemeButton from '../ThemeButton'
 import Button from '../../basic/button/Button'
 import styles from './Navbar.module.css'
 
-const Navbar = () => {
+const Navbar = (account, signer) => {
 
     const [currentSelection, setCurrentSelection] = useState(0)
     const router = useRouter()
@@ -70,7 +70,7 @@ const Navbar = () => {
                     <ThemeButton/>
                     <div className={styles.account}>
                         <div className={styles.accountBalance}><span>27.29 TRAP</span></div>
-                        <span style={{ marginRight: '8px' }}>0xaeD…7a98</span>
+                        <span style={{ marginRight: '8px' }}>{[signer]}</span>
                         <img src='../../../images/user.png' width='20px' />
                     </div>
                     <Button type='secondary' iconOpacity={1} iconClass='icon-kebab-horizontal' bg='more'/>

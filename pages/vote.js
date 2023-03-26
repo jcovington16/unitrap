@@ -4,7 +4,7 @@ import Navbar from '../components/main/navbar/Navbar'
 const vote = () => {
     return (
         <Layout>
-            <Navbar/>            
+            <Navbar/>          
         </Layout>
     )
 }
