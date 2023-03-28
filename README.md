@@ -12,7 +12,9 @@ Buidl Bounty Hunters Credit Union (BBHCU) is a community oriented data dao commi
 ## The Team
 
 Joshua Covington: Full Stack Dev
+
 Casmir Patterson: Tech Lead, Solidity Dev and Auditor
+
 Desmond Wareham: Dev Rel, Product and Marketing
 
 
