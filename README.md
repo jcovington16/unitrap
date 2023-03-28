@@ -40,8 +40,11 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Tech Stack
 
-Tech Stack: NextJS/React/JavaScript, Ethers, Bootstrap, Web3.js, Foundry/Forge Testing
-Integrations: Intmax -> webmax.js wallet connectivity, Gnosis Chain (Governance/Governor/TimelockToken), UMAoSnapshot/Zodiac (SAFE/ENS), cryptocreditunionDAO.eth, Push Protocol ,TheGraphql Schemas (UMA-Subgraph), F-EVM -> GasLimit Bug, Scroll (RPC)
+NextJS/React/JavaScript, Ethers, Bootstrap, Web3.js, Foundry/Forge Testing
+
+Integrations: 
+
+Intmax -> webmax.js wallet connectivity, Gnosis Chain (Governance/Governor/TimelockToken), UMAoSnapshot/Zodiac (SAFE/ENS), cryptocreditunionDAO.eth, Push Protocol ,TheGraphql Schemas (UMA-Subgraph), F-EVM -> GasLimit Bug, Scroll (RPC)
 
 In our DataDAO stack, we utilized GraphQL schemas like syntheticDID.graphql, chat.graphql, and Polybase Schemas (chat). To replace the NFTDID subgraph, we used UMA-oSnapshot/Zodiac SAFE and subGraph.
 
