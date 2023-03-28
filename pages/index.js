@@ -1,3 +1,4 @@
+import React from 'react'
 import Layout from '../components/main/layout/Layout'
 import Navbar from '../components/main/navbar/Navbar'
 import Button from '../components/basic/button/Button'
