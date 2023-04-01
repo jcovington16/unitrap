@@ -52,3 +52,11 @@ Our current focus is launching a GovernanceDAO on Gnosis Chain Chaido, with cont
 
 Additionally, we integrated Intmax for wallet connectivity with webmax.js and used tools like TheGraph (UMA-Subgraph) and PUSH Protocol for notifications. We also encountered and addressed the GasLimit Bug in F-EVM, and used Scroll (RPC) to deploy the Membership Contract.
 
+Gnosis Deployed Contracts: Casmir | MintGoldDust Head of Smart Contract Development @askcasmir, [3/25/23 12:03 PM]
+GovernanceToken: 0xBFaCCE3908C737c7D6CEe6d6ec25a73686Bc9325
+
+Casmir | MintGoldDust Head of Smart Contract Development @askcasmir, [3/25/23 12:04 PM]
+Timelock: 0xBE2Dd83494519615C1769434E499f97C00eB4E94
+
+Casmir | MintGoldDust Head of Smart Contract Development @askcasmir, [3/25/23 12:04 PM]
+Governor: 0xD51F327906e4637b323E4f116B15A065FF0C65A3
