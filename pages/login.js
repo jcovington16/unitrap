@@ -1,54 +1,81 @@
-/* eslint-disable react-hooks/rules-of-hooks */
-import { useState, useEffect } from 'react'
-import { useRouter } from 'next/router'
-import Layout from '../components/main/layout/Layout'
-import Navbar from '../components/main/navbar/Navbar'
-import { IntmaxWalletSigner } from 'webmax'
-import styles from '../components/main/login/Login.module.css'
+import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import Layout from "../components/main/layout/Layout";
+import Navbar from "../components/main/navbar/Navbar";
+import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { InjectedConnector } from "wagmi/connectors/injected";
+import styles from "../components/main/login/Login.module.css";
 
+const Login = () => {
+  const [userAccount, setUserAccount] = useState("");
+  const [userBalance, setUserBalance] = useState("");
+  const [isConnected, setIsConnected] = useState(false); // State to track connection status
+  const router = useRouter();
 
-const login = () => {
+  const handleConnect = async () => {
+    try {
+      const result = await web3.eth.someAsyncMethod();
+      console.log(result);
 
-    const [userAccount, setUserAccount] = useState('')
-    const [userBalance, setUserBalance] = useState('')
-    const router = useRouter()
+      const { address } = useAccount();
+      const { connect } = useConnect({
+        connector: new InjectedConnector(),
+      });
 
-    const handleConnect = async() => {
-        try{
-            // New instantiation of the wallet signer
-            const signer = new IntmaxWalletSigner();
-            const account = await signer.connectToAccount({ extraKeys: ["publicKey"]});
-            // Will not connect after clicking the connect button after verification
-            console.log(account)
-            setUserAccount(account.address)
-            setUserBalance(account)
-        } catch(error) {
-            console.log(error)
-        }
+      // Connect the user
+      await connect();
+
+      // Update the connection status
+      setIsConnected(true);
+
+      setUserAccount(address);
+      // setUserBalance(account); // You can update the user balance here if needed
+    } catch (error) {
+      console.error(error);
     }
+  };
 
-    useEffect(() => {
-        if(userAccount) {
-            router.push('/')
-        }
-    }, [userAccount, router])
+  const handleDisconnect = async () => {
+    try {
+      const { disconnect } = useDisconnect();
 
-    return (
-        <Layout>
-            <Navbar signer={userAccount} account={userBalance}/>
+      // Disconnect the user
+      await disconnect();
 
-            <div className={styles.container}>
+      // Update the connection status
+      setIsConnected(false);
 
-                <h2>Connect Wallet</h2>
-                <form>
-                    <div>
-                        <button onClick={handleConnect}>Connect</button>
-                    </div>
-                </form>
+      setUserAccount("");
+      // setUserBalance(""); // Reset user balance when disconnected
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-            </div>
-        </Layout>
-    )
-}
+  useEffect(() => {
+    if (userAccount) {
+      router.push("/");
+    }
+  }, [userAccount, router]);
 
-export default login
+  return (
+    <Layout>
+      <Navbar signer={userAccount} account={userBalance} />
+
+      <div className={styles.container}>
+        <h2>Connect Wallet</h2>
+        <form>
+          <div>
+            {isConnected ? (
+              <button onClick={handleDisconnect}>Disconnect</button>
+            ) : (
+              <button onClick={handleConnect}>Connect Wallet</button>
+            )}
+          </div>
+        </form>
+      </div>
+    </Layout>
+  );
+};
+
+export default Login;
