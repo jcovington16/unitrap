@@ -2,9 +2,20 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Layout from "../components/main/layout/Layout";
 import Navbar from "../components/main/navbar/Navbar";
-import { useAccount, useConnect, useDisconnect } from "wagmi";
+import {
+  configureChains,
+  useAccount,
+  useConnect,
+  useDisconnect,
+  mainnet,
+} from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
+import { publicProvider } from "wagmi/providers/public";
+import { MetaMaskSDK } from "@metamask/sdk";
 import styles from "../components/main/login/Login.module.css";
+import detectEthereumProvider from "@metamask/detect-provider";
+import { infuraProvider } from "wagmi/providers/infura";
+const { chains, publicClient } = configureChains([mainnet], [publicProvider()]);
 
 const Login = () => {
   const [userAccount, setUserAccount] = useState("");
@@ -14,8 +25,9 @@ const Login = () => {
 
   const handleConnect = async () => {
     try {
-      const result = await web3.eth.someAsyncMethod();
-      console.log(result);
+      // Replace with the actual web3 method you want to call
+      // const result = await web3.eth.someAsyncMethod();
+      // console.log(result);
 
       const { address } = useAccount();
       const { connect } = useConnect({
@@ -61,7 +73,6 @@ const Login = () => {
   return (
     <Layout>
       <Navbar signer={userAccount} account={userBalance} />
-
       <div className={styles.container}>
         <h2>Connect Wallet</h2>
         <form>
