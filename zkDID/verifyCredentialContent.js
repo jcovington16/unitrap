@@ -1,6 +1,5 @@
 //verify login result with credential, this function will verify all data for credential.
 import { verifyCredentialContent } from '@zcloak/login-verify';
-
 const challenge = '';
 
 const did = await provider.getCurrentDid();

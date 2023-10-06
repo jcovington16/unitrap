@@ -1,6 +1,5 @@
 import { verifyCredentialDigest } from '@zcloak/login-verify';
 //verify login result with credential digest, this verify verify claimerSignature, attestation status, credential owner.
-
 const challenge = '';
 
 const did = await provider.getCurrentDid();
