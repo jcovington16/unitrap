@@ -69,7 +69,6 @@ const Login = () => {
       router.push("/");
     }
   }, [userAccount, router]);
-
   return (
     <Layout>
       <Navbar signer={userAccount} account={userBalance} />

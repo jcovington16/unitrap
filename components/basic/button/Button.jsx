@@ -34,7 +34,7 @@ const Button = ({ id, text, bg, iconClass, href, iconOpacity, type, isLink, isOu
         iconOpacity: iconOpacity,
         iconMargin: iconClass && text
     })
-    
+
     return (
         <>
         {isLink ? <Link href={href}>

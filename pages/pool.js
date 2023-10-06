@@ -3,7 +3,6 @@ import Navbar from "../components/main/navbar/Navbar"
 import styles from '../styles/Home.module.css'
 import { useState, useEffect } from 'react'
 
-
 import { SwapWidget } from '@uniswap/widgets' 
 import '@uniswap/widgets/fonts.css' 
 import Web3 from "web3"

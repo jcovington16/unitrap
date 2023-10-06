@@ -8,5 +8,4 @@ const vote = () => {
         </Layout>
     )
 }
-
 export default vote

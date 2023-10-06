@@ -2,7 +2,6 @@ const tokenAddress = "0xd00981105e61274c8a5cd5a88fe7e037d935b513";
 const tokenSymbol = "TRAP";
 const tokenDecimals = 18;
 const tokenImage = "https://unitrap.io/images/trap.png";
-
 try {
   const wasAdded = await window.ethereum.request({
     method: "wallet_watchAsset",

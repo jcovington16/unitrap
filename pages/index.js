@@ -9,7 +9,6 @@ import { heading, panel, text } from "@metamask/snaps-ui";
 export default function Home() {
   const [account, setAccount] = useState(""); // State to store Ethereum account
   const [balance, setBalance] = useState(""); // State to store account balance
-
   // Function to handle Ethereum button click
   const handleEthereumButtonClick = async () => {
     if (typeof window.ethereum !== "undefined") {

@@ -1,6 +1,5 @@
 collection User {
   id: string;
-
   @delegate
   @read
   publicKey: PublicKey;
