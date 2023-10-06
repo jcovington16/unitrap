@@ -8,8 +8,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@pushprotocol/restapi": "^0.9.0",
+    "@metamask/detect-provider": "^2.0.0",
+    "@metamask/sdk": "^0.6.2",
+    "@metamask/snaps-ui": "^1.0.2",
     "@polybase/client": "^0.3.38",
+    "@pushprotocol/restapi": "^0.9.0",
     "@uniswap/widgets": "^0.0.25-beta",
     "@zcloak/did-resolver": "^1.1.0",
     "@zcloak/login-providers": "^1.1.1",
@@ -23,6 +26,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-redux": "^7.2.6",
+    "viem": "^1.10.14",
+    "wagmi": "^1.4.2",
     "web3": "^1.7.1",
     "webmax": "^0.1.10"
   },
