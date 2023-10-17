@@ -1,6 +1,4 @@
-import { ComethWallet } from "@cometh/connect-sdk";
 import { ComethProvider } from "@cometh/connect-sdk";
-
 
 const instanceProvider = new ComethProvider(instance);
 

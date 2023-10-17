@@ -11,17 +11,34 @@ import {
 } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { publicProvider } from "wagmi/providers/public";
-import { ComethWallet } from "@cometh/connect-sdk";
+import {
+  ComethWallet,
+  ConnectAdaptor,
+  SupportedNetworks,
+} from "@cometh/connect-sdk";
 import styles from "../components/main/login/Login.module.css";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { infuraProvider } from "wagmi/providers/infura";
-const { chains, publicClient } = configureChains([mainnet], [publicProvider()]);
 
+const { chains, publicClient } = configureChains([mainnet], [publicProvider()]);
 const Login = () => {
   const [userAccount, setUserAccount] = useState("");
   const [userBalance, setUserBalance] = useState("");
   const [isConnected, setIsConnected] = useState(false); // State to track connection status
   const router = useRouter();
+
+  const apiKey = process.env.COMETH_API_KEY; // Access the environment variable
+
+  const walletAdaptor = new ConnectAdaptor({
+    chainId: SupportedNetworks.POLYGON,
+    apiKey: apiKey,
+  });
+
+  const wallet = new ComethWallet({
+    authAdapter: walletAdaptor,
+    apiKey: apiKey,
+    rpcUrl: process.env.RPC_URL, // Assuming you have another environment variable for RPC_URL
+  });
 
   const handleConnect = async () => {
     try {
