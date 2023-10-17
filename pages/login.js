@@ -11,7 +11,7 @@ import {
 } from "wagmi";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { publicProvider } from "wagmi/providers/public";
-import { MetaMaskSDK } from "@metamask/sdk";
+import { ComethWallet } from "@cometh/connect-sdk";
 import styles from "../components/main/login/Login.module.css";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { infuraProvider } from "wagmi/providers/infura";
