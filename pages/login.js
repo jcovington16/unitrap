@@ -86,11 +86,13 @@ const Login = () => {
       router.push("/");
     }
   }, [userAccount, router]);
+
   return (
     <Layout>
       <Navbar signer={userAccount} account={userBalance} />
+
       <div className={styles.container}>
-        <h2>Connect Wallet</h2>
+        <h2>Cometh Wallet</h2>
         <form>
           <div>
             {isConnected ? (
