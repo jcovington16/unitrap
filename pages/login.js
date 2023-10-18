@@ -19,32 +19,45 @@ import {
 import styles from "../components/main/login/Login.module.css";
 import detectEthereumProvider from "@metamask/detect-provider";
 import { infuraProvider } from "wagmi/providers/infura";
+import ConnectWallet from "../components/main/connect/ConnectWallet.jsx";
 
 const { chains, publicClient } = configureChains([mainnet], [publicProvider()]);
+
 const Login = () => {
   const [userAccount, setUserAccount] = useState("");
   const [userBalance, setUserBalance] = useState("");
   const [isConnected, setIsConnected] = useState(false); // State to track connection status
   const router = useRouter();
 
-  const apiKey = process.env.COMETH_API_KEY; // Access the environment variable
-
-  const walletAdaptor = new ConnectAdaptor({
-    chainId: SupportedNetworks.POLYGON,
-    apiKey: apiKey,
-  });
-
-  const wallet = new ComethWallet({
-    authAdapter: walletAdaptor,
-    apiKey: apiKey,
-    rpcUrl: process.env.RPC_URL, // Assuming you have another environment variable for RPC_URL
-  });
-
   const handleConnect = async () => {
     try {
       // Replace with the actual web3 method you want to call
       // const result = await web3.eth.someAsyncMethod();
       // console.log(result);
+      const walletAdaptor = new ConnectAdaptor({
+        chainId: SupportedNetworks.MUMBAI,
+        apiKey,
+      });
+
+      const instanceProvider = new ComethProvider(instance);
+      const instance = new ComethWallet({
+        authAdapter: walletAdaptor,
+        apiKey,
+      });
+
+      const contract = new ethers.Contract(
+        COUNTER_CONTRACT_ADDRESS,
+        countContractAbi,
+        instanceProvider.getSigner()
+      );
+      // const localStorageAddress = window.localStorage.getItem("walletAddress");
+
+      // if (localStorageAddress) {
+      //   await instance.connect(localStorageAddress);
+      // } else {
+      //   await instance.connect();
+      //   const walletAddress = await instance.getAddress();
+      //   window.localStorage.setItem("walletAddress", walletAddress);
 
       const { address } = useAccount();
       const { connect } = useConnect({
@@ -52,7 +65,7 @@ const Login = () => {
       });
 
       // Connect the user
-      await connect();
+      await wallet.connect(WALLET_ADDRESS);
 
       // Update the connection status
       setIsConnected(true);
@@ -86,15 +99,21 @@ const Login = () => {
       router.push("/");
     }
   }, [userAccount, router]);
-
   return (
     <Layout>
       <Navbar signer={userAccount} account={userBalance} />
-
       <div className={styles.container}>
         <h2>Cometh Wallet</h2>
         <form>
           <div>
+            <ConnectWallet
+              isConnected={isConnected}
+              // isConnecting={isConnecting}
+              // connect={connect}
+              // connectionError={connectionError}
+              // wallet={wallet}
+            />
+
             {isConnected ? (
               <button onClick={handleDisconnect}>Disconnect</button>
             ) : (
