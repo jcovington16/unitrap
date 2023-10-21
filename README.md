@@ -1,3 +1,19 @@
+# Buidl Bounty Hunters Credit Union
+
+ Providing Private Banking and Financial Data to Local Communities around the Globe
+
+## About us
+
+Buidl Bounty Hunters Credit Union (BBHCU) is a community oriented data dao committed to global impact. We are more than a credit union. We leverage zk and other web3 technologies to revolutionize banking. We provide open user financial data for buidlrs while protecting member privacy making information like credit scores obsolete.
+
+## The Team
+
+Joshua Covington: Full Stack Dev
+
+Casmir Patterson: Tech Lead, Solidity Dev and Auditor
+
+Desmond Wareham: Dev Rel, Product and Marketing
+
 ZetaChain Hackathon Project
 This is a simple Hardhat template that provides a starting point for developing smart contract applications on the ZetaChain blockchain. 🔑 Private key: 0f66a2b6dab4b1bd8755c5dc367395cd6b17c81e73e7231e6a4d04e084cde35e
 🔐 Mnemonic phrase: net rescue gorilla rapid luxury near dinosaur code perfect cattle equip confirm
@@ -45,3 +61,7 @@ XDEFI Wallet
 EVM: 0x738663E84531a7e9fFE12517F277FBa41643Df11 
 Bitcoin: tb1q9v4zs62tglnmwp482t7tghzfh4nz0pkweux39x
 
+Scroll Deployed Contracts: 
+0x63D610f604f52615850da3A8Ff6B316e004F948f
+0x86777D9b8F27B822df90B6c2787a12ccc99B59db
+0x6578C67B97E4F431c07cAb4C91176ECf5125d2d6
