@@ -5,13 +5,14 @@ function ConnectWallet({
   isConnecting,
   isConnected,
   connect,
-  wallet,
+  wallet, // Assume wallet is passed as a prop
 }) {
   const getTextButton = () => {
+    // Call connect when needed, not during variable declaration
     if (isConnected && wallet) {
       return (
         <a
-          href={`https://polygon-mumbai.infura.io/v3/761519c1808f45f788da94df69dabea8/${wallet.getAddress()}`}
+          href={`https://mumbai.polygonscan.com/address/${wallet.getAddress()}`}
           target="_blank"
         >
           Wallet connected

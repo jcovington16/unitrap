@@ -1,8 +1,13 @@
-import { useState } from 'react';
-import { ComethProvider, ComethWallet, ConnectAdaptor, SupportedNetworks } from '@cometh/connect-sdk';
-import { useWalletContext } from './useWalletContext';
-import { ethers } from 'ethers';
-import countContractAbi from '../../contract/counterABI.json';
+import { useState } from "react";
+import {
+  ComethProvider,
+  ComethWallet,
+  ConnectAdaptor,
+  SupportedNetworks,
+} from "@cometh/connect-sdk";
+// import { context } from "../modules/wallet/services/context.jsx";
+import { ethers } from "ethers";
+import countContractAbi from "../../contract/counterABI.json"; // Import the contract ABI
 
 export function useWalletAuth() {
   const {
@@ -17,14 +22,14 @@ export function useWalletAuth() {
   const [connectionError, setConnectionError] = useState(null);
 
   const apiKey = process.env.NEXT_PUBLIC_COMETH_API_KEY;
-  const COUNTER_CONTRACT_ADDRESS = '0x3633A1bE570fBD902D10aC6ADd65BB11FC914624';
+  const COUNTER_CONTRACT_ADDRESS = "0x3633A1bE570fBD902D10aC6ADd65BB11FC914624";
 
   function displayError(message) {
     setConnectionError(message);
   }
 
   async function connect() {
-    if (!apiKey) throw new Error('no apiKey provided');
+    if (!apiKey) throw new Error("no apiKey provided");
     setIsConnecting(true);
     try {
       const walletAdaptor = new ConnectAdaptor({
@@ -37,21 +42,40 @@ export function useWalletAuth() {
         apiKey,
       });
 
-      const localStorageAddress = window.localStorage.getItem('walletAddress');
+      const localStorageAddress = window.localStorage.getItem("walletAddress");
 
       if (localStorageAddress) {
         await instance.connect(localStorageAddress);
       } else {
         await instance.connect();
         const walletAddress = await instance.getAddress();
-        window.localStorage.setItem('walletAddress', walletAddress);
+        window.localStorage.setItem("walletAddress", walletAddress);
       }
 
       const instanceProvider = new ComethProvider(instance);
 
       const contract = new ethers.Contract(
         COUNTER_CONTRACT_ADDRESS,
-        count
-      )}
+        countContractAbi, // Use the contract ABI here
+        instanceProvider
+      );
+
+      setWallet(instance);
+      setProvider(instanceProvider);
+      setCounterContract(contract);
+      setIsConnected(true);
+    } catch (error) {
+      displayError(`Connection error: ${error.message}`);
+      setIsConnected(false);
+    } finally {
+      setIsConnecting(false);
     }
   }
+
+  return {
+    isConnected,
+    isConnecting,
+    connectionError,
+    connect,
+  };
+}

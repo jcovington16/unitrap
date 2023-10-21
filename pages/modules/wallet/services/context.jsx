@@ -15,7 +15,7 @@ export function WalletProvider({ children }) {
   const [wallet, setWallet] = useState(null);
   const [provider, setProvider] = useState(null);
   const [counterContract, setCounterContract] = useState(null);
-
+  console.log("Context Loading");
   return (
     <WalletContext.Provider
       value={{

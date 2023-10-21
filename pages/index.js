@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 import Layout from "../components/main/layout/Layout";
 import Navbar from "../components/main/navbar/Navbar";
 import Button from "../components/basic/button/Button";
 import styles from "../styles/Home.module.css";
 import { ethers } from "ethers";
-import { heading, panel, text } from "@metamask/snaps-ui";
+// import { heading, panel, text } from "@metamask/snaps-ui";
 import { loadStripeOnramp } from "@stripe/crypto";
 import {
   CryptoElements,
@@ -75,6 +75,8 @@ export default function Home() {
   return (
     <Layout>
       <Navbar />
+      <WalletProvider>{children}</WalletProvider>
+
       <head>
         <title>Onramp</title>
         <script src="https://js.stripe.com/v3/"></script>

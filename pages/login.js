@@ -18,9 +18,10 @@ import {
   ComethProvider,
 } from "@cometh/connect-sdk";
 import styles from "../components/main/login/Login.module.css";
-import detectEthereumProvider from "@metamask/detect-provider";
-import { infuraProvider } from "wagmi/providers/infura";
+// import { infuraProvider } from "wagmi/providers/infura";
 import ConnectWallet from "../components/main/connect/ConnectWallet.jsx";
+import { useWalletAuth } from "./modules/wallet/hooks/useWalletAuth";
+import { WalletProvider } from "./modules/wallet/services/context";
 
 const { chains, publicClient } = configureChains([mainnet], [publicProvider()]);
 
@@ -29,7 +30,7 @@ const Login = () => {
   const [userBalance, setUserBalance] = useState("");
   const [isConnected, setIsConnected] = useState(false); // State to track connection status
   const router = useRouter();
-  console.log("Login");
+  console.log("Login page");
 
   // const API_KEY = apiKey;
 
@@ -54,12 +55,6 @@ const Login = () => {
         apiKey: API_KEY,
       });
 
-      const wallet = new ComethWallet({
-        authAdapter: walletAdaptor,
-        apiKey: API_KEY,
-        rpcUrl: RPC_URL,
-      });
-
       const nftContract = new ethers.Contract(
         NFT_CONTRACT_ADDRESS,
         nftContractAbi,
@@ -73,14 +68,6 @@ const Login = () => {
         countContractAbi,
         instanceProvider.getSigner()
       );
-      // const localStorageAddress = window.localStorage.getItem("walletAddress");
-
-      // if (localStorageAddress) {
-      //   await instance.connect(localStorageAddress);
-      // } else {
-      //   await instance.connect();
-      //   const walletAddress = await instance.getAddress();
-      //   window.localStorage.setItem("walletAddress", walletAddress);
 
       const { address } = useAccount();
       const { connect } = useConnect({
@@ -88,10 +75,17 @@ const Login = () => {
       });
 
       // Connect the user
-      await wallet.connect(WALLET_ADDRESS);
+      try {
+        await wallet.connect(WALLET_ADDRESS);
+        console.log("User connected successfully");
+        console.log(wallet);
+      } catch (error) {
+        console.error("Error connecting the user:", error);
+      }
 
       // Update the connection status
       setIsConnected(true);
+      console.log("isConnected");
 
       setUserAccount(address);
       // setUserBalance(account); // You can update the user balance here if needed
@@ -129,7 +123,23 @@ const Login = () => {
         <h2>Cometh Wallet</h2>
         <form>
           <div>
-            <ConnectWallet isConnected={handleConnect} />
+            <ConnectWallet
+              isConnected={handleConnect}
+              // isConnecting={isConnecting}
+              // connect={connect}
+              // connectionError={connectionError}
+              // wallet={wallet}
+            />
+            {/* {transactionSuccess && (
+              <Confetti width={windowWidth} height={windowHeight} />
+            )} */}
+
+            {isConnected && (
+              <Transaction
+                transactionSuccess={transactionSuccess}
+                setTransactionSuccess={setTransactionSuccess}
+              />
+            )}
 
             {isConnected ? (
               <button onClick={handleDisconnect}>Disconnect</button>
