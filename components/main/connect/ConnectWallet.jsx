@@ -1,26 +1,4 @@
-import { ComethWallet } from "@cometh/connect-sdk";
-import { ComethProvider } from "@cometh/connect-sdk";
-import { ethers } from "ethers";
-// JavaScript does not have type annotations, so we only have the property names and their expected types.
-const ConnectWalletProps = {
-  connectionError: null, // string or null
-  isConnecting: false, // boolean
-  isConnected: false, // boolean
-  connect: () => Promise.resolve(), // a function that returns a Promise
-  wallet: null,
-  ComethWallet, // ComethWallet or null
-};
-
-// Initialize or create the 'instance' object here
-const instance = {};
-instance.propertyName = "propertyValue";
-const instanceProvider = new ComethProvider(instance);
-
-// const contract = new ethers.Contract(
-//   COUNTER_CONTRACT_ADDRESS,
-//   countContractAbi,
-//   instanceProvider.getSigner()
-// );
+import React from "react";
 
 function ConnectWallet({
   connectionError,
@@ -30,34 +8,34 @@ function ConnectWallet({
   wallet,
 }) {
   const getTextButton = () => {
-    if (isConnected) {
+    if (isConnected && wallet) {
       return (
-        <>
-          <a
-            href={`https://mumbai.polygonscan.com/address/${wallet.getAddress()}`}
-            target="_blank"
-          >
-            {"Wallet connected"}
-          </a>
-        </>
+        <a
+          href={`https://mumbai.polygonscan.com/address/0xd4f4Ce86A95cC0B5B5eCfE72BB3ceA32BDa15318${wallet.getAddress()}`}
+          target="_blank"
+        >
+          Wallet connected
+        </a>
       );
     } else if (isConnecting) {
-      return <>{"Getting wallet..."}</>;
+      return <span>Getting wallet...</span>;
     } else {
-      return "Get your Wallet";
+      return (
+        <button
+          disabled={!!connectionError}
+          className="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover-bg-gray-100 disabled-bg-white"
+          onClick={connect}
+        >
+          Get your Wallet
+        </button>
+      );
     }
   };
 
   return (
     <>
       {!connectionError ? (
-        <button
-          disabled={isConnecting || isConnected || !!connectionError}
-          className="flex items-center justify-center gap-x-2.5 p-3 font-semibold text-gray-900 hover:bg-gray-100 disabled:bg-white"
-          onClick={connect}
-        >
-          {getTextButton()}
-        </button>
+        <div>{getTextButton()}</div>
       ) : (
         <p className="flex items-center justify-center text-gray-900 bg-red-50">
           Connection denied
@@ -66,4 +44,5 @@ function ConnectWallet({
     </>
   );
 }
+
 export default ConnectWallet;

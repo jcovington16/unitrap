@@ -1,6 +1,7 @@
 {
   "name": "unitrap",
   "private": true,
+  "proxy": "http://localhost:3001",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -19,6 +20,7 @@
     "@stripe/crypto": "^0.0.4",
     "@stripe/stripe-js": "^2.1.8",
     "@uniswap/widgets": "^0.0.25-beta",
+    "@wormhole-foundation/wormhole-connect": "^0.1.2",
     "@zcloak/did-resolver": "^1.1.0",
     "@zcloak/login-providers": "^1.1.1",
     "@zcloak/login-verify": "^1.1.3",
