@@ -14,6 +14,21 @@ Casmir Patterson: Tech Lead, Solidity Dev and Auditor
 
 Desmond Wareham: Dev Rel, Product and Marketing
 
+Additionally, we integrated Intmax for wallet connectivity with webmax.js and used tools like TheGraph (UMA-Subgraph) and PUSH Protocol for notifications. We also encountered and addressed the GasLimit Bug in F-EVM, and used Scroll (RPC) to deploy the Membership Contract.
+
+Gnosis Deployed Contracts: Casmir | MintGoldDust Head of Smart Contract Development @askcasmir, 
+GovernanceToken: 0xBFaCCE3908C737c7D6CEe6d6ec25a73686Bc9325
+
+Casmir |  Head of Smart Contract Development @askcasmir, @askcasmir, 
+Timelock: 0xBE2Dd83494519615C1769434E499f97C00eB4E94
+
+Casmir | Head of Smart Contract Development @askcasmir, 
+Governor: 0xD51F327906e4637b323E4f116B15A065FF0C65A3
+
+0xbfacce3908c737c7d6cee6d6ec25a73686bc9325
+0xBE2Dd83494519615C1769434E499f97C00eB4E94
+0xd51f327906e4637b323e4f116b15a065ff0c65a3
+
 ZetaChain Hackathon Project
 This is a simple Hardhat template that provides a starting point for developing smart contract applications on the ZetaChain blockchain. 🔑 Private key: 0f66a2b6dab4b1bd8755c5dc367395cd6b17c81e73e7231e6a4d04e084cde35e
 🔐 Mnemonic phrase: net rescue gorilla rapid luxury near dinosaur code perfect cattle equip confirm
