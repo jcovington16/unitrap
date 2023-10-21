@@ -15,6 +15,7 @@ import {
   ComethWallet,
   ConnectAdaptor,
   SupportedNetworks,
+  ComethProvider,
 } from "@cometh/connect-sdk";
 import styles from "../components/main/login/Login.module.css";
 import detectEthereumProvider from "@metamask/detect-provider";
@@ -28,22 +29,44 @@ const Login = () => {
   const [userBalance, setUserBalance] = useState("");
   const [isConnected, setIsConnected] = useState(false); // State to track connection status
   const router = useRouter();
+  console.log("Login");
+
+  // const API_KEY = apiKey;
 
   const handleConnect = async () => {
     try {
       // Replace with the actual web3 method you want to call
       // const result = await web3.eth.someAsyncMethod();
-      // console.log(result);
+      console.log(result);
       const walletAdaptor = new ConnectAdaptor({
         chainId: SupportedNetworks.MUMBAI,
-        apiKey,
+        apiKey: API_KEY,
       });
 
+      const provider = new ComethProvider(wallet);
+      console.log("Provider-Cometh");
+
       const instanceProvider = new ComethProvider(instance);
+      console.log("instanceProvider");
+
       const instance = new ComethWallet({
         authAdapter: walletAdaptor,
-        apiKey,
+        apiKey: API_KEY,
       });
+
+      const wallet = new ComethWallet({
+        authAdapter: walletAdaptor,
+        apiKey: API_KEY,
+        rpcUrl: RPC_URL,
+      });
+
+      const nftContract = new ethers.Contract(
+        NFT_CONTRACT_ADDRESS,
+        nftContractAbi,
+        provider.getSigner()
+      );
+      const tx = await nftContract.count();
+      const txResponse = await tx.wait();
 
       const contract = new ethers.Contract(
         COUNTER_CONTRACT_ADDRESS,
@@ -80,7 +103,7 @@ const Login = () => {
   const handleDisconnect = async () => {
     try {
       const { disconnect } = useDisconnect();
-
+      console.log("disconnect");
       // Disconnect the user
       await disconnect();
 
@@ -106,13 +129,7 @@ const Login = () => {
         <h2>Cometh Wallet</h2>
         <form>
           <div>
-            <ConnectWallet
-              isConnected={isConnected}
-              // isConnecting={isConnecting}
-              // connect={connect}
-              // connectionError={connectionError}
-              // wallet={wallet}
-            />
+            <ConnectWallet isConnected={handleConnect} />
 
             {isConnected ? (
               <button onClick={handleDisconnect}>Disconnect</button>
