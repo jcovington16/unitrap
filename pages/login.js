@@ -29,6 +29,7 @@ const Login = () => {
   const [userBalance, setUserBalance] = useState("");
   const [isConnected, setIsConnected] = useState(false); // State to track connection status
   const router = useRouter();
+
   console.log("Login");
 
   // const API_KEY = apiKey;
@@ -65,6 +66,7 @@ const Login = () => {
         nftContractAbi,
         provider.getSigner()
       );
+
       const tx = await nftContract.count();
       const txResponse = await tx.wait();
 
@@ -73,16 +75,10 @@ const Login = () => {
         countContractAbi,
         instanceProvider.getSigner()
       );
-      // const localStorageAddress = window.localStorage.getItem("walletAddress");
 
-      // if (localStorageAddress) {
-      //   await instance.connect(localStorageAddress);
-      // } else {
-      //   await instance.connect();
-      //   const walletAddress = await instance.getAddress();
-      //   window.localStorage.setItem("walletAddress", walletAddress);
+      const localStorageAddress = window.localStorage.getItem("walletAddress");
+      // const { address } = useAccount();
 
-      const { address } = useAccount();
       const { connect } = useConnect({
         connector: new InjectedConnector(),
       });
@@ -119,7 +115,7 @@ const Login = () => {
 
   useEffect(() => {
     if (userAccount) {
-      router.push("/");
+      router.push("/vote");
     }
   }, [userAccount, router]);
   return (

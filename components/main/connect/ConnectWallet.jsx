@@ -11,7 +11,7 @@ function ConnectWallet({
     if (isConnected && wallet) {
       return (
         <a
-          href={`https://polygon-mumbai.infura.io/v3/761519c1808f45f788da94df69dabea8/${wallet.getAddress()}`}
+          href={`https://mumbai.polygonscan.com/address/0xd4f4Ce86A95cC0B5B5eCfE72BB3ceA32BDa15318${wallet.getAddress()}`}
           target="_blank"
         >
           Wallet connected
