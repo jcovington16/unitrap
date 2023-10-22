@@ -14,27 +14,35 @@ Casmir Patterson: Tech Lead, Solidity Dev and Auditor
 
 Desmond Wareham: Dev Rel, Product and Marketing
 
-Additionally, we integrated Intmax for wallet connectivity with webmax.js and used tools like TheGraph (UMA-Subgraph) and PUSH Protocol for notifications. We also encountered and addressed the GasLimit Bug in F-EVM, and used Scroll (RPC) to deploy the Membership Contract.
+Additionally, we integrated Cometh for wallet connectivity with Cometh Connect and used tools like TheGraph (UMA-Subgraph) and Wormhole for Multichain. We also encountered and addressed the GasLimit Bug in F-EVM, and used Scroll (RPC) to deploy the Membership Contract.
 
-Gnosis Deployed Contracts: Casmir | MintGoldDust Head of Smart Contract Development @askcasmir, 
+
 GovernanceToken: 0xBFaCCE3908C737c7D6CEe6d6ec25a73686Bc9325
-
-Casmir |  Head of Smart Contract Development @askcasmir, @askcasmir, 
 Timelock: 0xBE2Dd83494519615C1769434E499f97C00eB4E94
-
-Casmir | Head of Smart Contract Development @askcasmir, 
 Governor: 0xD51F327906e4637b323E4f116B15A065FF0C65A3
 
 0xbfacce3908c737c7d6cee6d6ec25a73686bc9325
 0xBE2Dd83494519615C1769434E499f97C00eB4E94
 0xd51f327906e4637b323e4f116b15a065ff0c65a3
 
-ZetaChain Hackathon Project
-This is a simple Hardhat template that provides a starting point for developing smart contract applications on the ZetaChain blockchain. 🔑 Private key: 0f66a2b6dab4b1bd8755c5dc367395cd6b17c81e73e7231e6a4d04e084cde35e
+ETHOnline Hackathon Project
+This is a simple Hardhat template that provides a starting point for developing smart contract applications on the blockchains: 
+
+NEXTID: Twitter Wallet Binding | Twitter ChainLink Functions External Adapter | Chainlink Tableland - Arbitrum Alchemy
+🔑 Private key: 520938349f7ff6c4f84e1da21ce28d353d7cc1ebb254a6cbe82ffb8c6e1769db
+🔑  key: 02492e9cb3a3578acc27fd1884a6de1758add291300754557d06a28308951d46ea
+✍ Signature: 0x5297fe3b1740cda55bd26571b28d0f9530d061fe898e5758ff1128ed190230cf5d33b220046816539624e54e63d11761997eb863d182ab38b2403f6d1c8c71151b
+✍ (base64): Upf+OxdAzaVb0mVxso0PlTDQYf6JjldY/xEo7RkCMM9dM7IgBGgWU5Yk5U5j0RdhmX64Y9GCqziyQD9tHIxxFRs=
+
+
 🔐 Mnemonic phrase: net rescue gorilla rapid luxury near dinosaur code perfect cattle equip confirm
 😃 EVM address: 0x738663E84531a7e9fFE12517F277FBa41643Df11
-😃 Bitcoin address: tb1q9v4zs62tglnmwp482t7tghzfh4nz0pkweux39x
-😃 Bech32 address: zeta1wwrx86z9xxn7nllpy5tlyalm5sty8hc38p9064
+😃  address: tb1q9v4zs62tglnmwp482t7tghzfh4nz0pkweux39x
+😃 TableState.sol contract address: 0x1C3a02fC79b8C0C220fECf6D6409dF514097D70c
+
+Tableland Studio Deployments
+https://studio.tableland.xyz/buidl-bounty-hunters/soakmydeck/deployments/default/user
+https://studio.tableland.xyz/buidl-bounty-hunters/soakmydeck/deployments/default/track
 
 Prerequisites
 ## Getting Started
@@ -64,11 +72,10 @@ Integrations:
 
 Uniswap hooks,
 Metamask Snaps,
-XDEFI Wallet
+XDEFI Wallet,
                        
 
 🔑 Using account: 0x738663E84531a7e9fFE12517F277FBa41643Df11
-
 🚀 Successfully deployed contract on ZetaChain.
 📜 Contract address: 0x9dd87aBBD3733e5Ca467F5288c4D350d2aebD6A5
 🌍 Explorer: https://athens3.explorer.zetachain.com/address/0x9dd87aBBD3733e5Ca467F5288c4D350d2aebD6A5
