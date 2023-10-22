@@ -1,0 +1,8 @@
+{
+	"dependencies": {
+		"@tableland/sdk": "4.5.3-dev.0"
+	},
+	"devDependencies": {
+		"hardhat": "^2.14.0"
+	}
+}

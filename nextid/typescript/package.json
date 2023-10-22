@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "ethereumjs-util": "^7.1.5",
+    "typescript": "^5.2.2"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  },
+  "scripts": {
+    "start": "ts-node index.ts"
+  }
+}
