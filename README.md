@@ -37,8 +37,7 @@ NEXTID: Twitter Wallet Binding | Twitter ChainLink Functions External Adapter | 
 
 
 🔐 Mnemonic phrase: net rescue gorilla rapid luxury near dinosaur code perfect cattle equip confirm
-😃 EVM address: 0x738663E84531a7e9fFE12517F277FBa41643Df11
-😃  address: tb1q9v4zs62tglnmwp482t7tghzfh4nz0pkweux39x
+😃 EVM address: 0x81D9069957Bfbd6fb29C3b0686Ce78397FF3E009
 😃 TableState.sol contract address: 0x1C3a02fC79b8C0C220fECf6D6409dF514097D70c
 
 Tableland Studio Deployments
